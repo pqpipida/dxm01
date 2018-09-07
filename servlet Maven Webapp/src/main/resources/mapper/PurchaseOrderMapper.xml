@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dxm.edu.mapper.PurchaseOrderMapper">
+ <!--注意： nameSpace要和接口的名字和路径对应 -->
+
+    <resultMap id="po" type="com.dxm.edu.entity.PurchaseOrderEntity">
+        <id column="PAid" property="paid"></id>
+        <result column="DocumentNumber" property="documentnumber"></result>
+        <result column="CreateDate" property="createdate"></result>
+        <result column="Coal" property="coal"></result>
+        <result column="Quantity" property="quantity"></result>
+        <result column="SettlementMethod" property="settlementmethod"></result>
+        <result column="Initiator" property="initiator"></result>
+        <result column="State" property="state"></result>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+		
+		PAid,
+		DocumentNumber,
+		CreateDate,
+		Coal,
+		Quantity,
+		SettlementMethod,
+		Initiator,
+		State
+		
+	</sql>
+
+   
+
+    <!--查询所有用户数据 -->
+    <select id="getPOsList"  parameterType="com.dxm.edu.entity.Page" resultMap="po">
+      select * from PurchaseApplication limit #{startRow},#{pageSize}
+    </select>
+
+    <select id="getPOTotalCount" parameterType="com.dxm.edu.entity.Page"
+        resultType="java.lang.Integer">
+        select count(PAid) from PurchaseApplication
+         <where>
+            <if test="queryCondition!=null">
+                and DocumentNumber like CONCAT('%',#{queryCondition},'%')
+            </if>
+        </where> 
+    </select>
+
+
+    <select id="getPOsBycondtion" parameterType="com.dxm.edu.entity.Page" resultMap="po">
+    
+        select * from PurchaseApplication 
+         <where>
+            <if test="queryCondition!=null">
+                 DocumentNumber like  CONCAT('%',#{queryCondition},'%')
+            </if>
+        </where>
+        limit #{startRow},#{pageSize}
+      </select>
+
+    <delete id="deletePO" parameterType="java.lang.Integer">
+        delete from PurchaseApplication
+        where
+        PAid=#{paid}
+    </delete>
+
+  
+
+</mapper>

@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dxm.edu.mapper.PurchasingDemandMapper">
+
+    <resultMap id="pd" type="com.dxm.edu.entity.PurchasingDemandEntity">
+        <id column="PurchasingDemandId" property="purchasingdemandid"></id>
+        <result column="Deadline" property="deadline"></result>
+        <result column="ApplicationUnit" property="applicationunit"></result>
+        <result column="DocumentNumber" property="documentnumber"></result>
+        <result column="Applicant" property="applicant"></result>
+        
+        <result column="Issuer" property="issuer"></result>
+        <result column="ApplicationDate" property="applicationdate"></result>
+        <result column="DeliveryTime1" property="deliverytime1"></result>
+        <result column="DeliveryTime2" property="deliverytime2"></result>
+        <result column="VarietyOfCoal1" property="varietyofcoal1"></result>
+      
+        <result column="VarietyOfCoal2" property="varietyofcoal2"></result>
+        <result column="PurchaseQuantity" property="purchasequantity"></result>
+        <result column="TypeOfShipping" property="typeofshipping"></result>
+        <result column="PlaceOfDelivery" property="placeofdelivery"></result>
+        <result column="SettlementMethod" property="settlementmethod"></result>
+       
+        <result column="AcceptanceMethod" property="acceptancemethod"></result>
+        <result column="PriceCeiling" property="priceceiling"></result>
+        <result column="FloorPrice" property="floorprice"></result>
+        <result column="LimitPrice" property="limitprice"></result>
+        <result column="SettlementPaymentMethod" property="settlementpaymentmethod"></result>
+      
+        <result column=" IfPriceMarginPayment" property="ifpricemarginpayment"></result>
+        <result column="PriceMarginPayment" property="pricemarginpayment"></result>
+        <result column="IfPerformanceBondPayment" property="ifperformancebondpayment"></result>
+        <result column="PerformanceBondPayment" property="performancebondpayment"></result>
+        <result column="ReceivedLowBaseHeat" property="receivedlowbaseheat"></result>
+        
+        <result column="StAr" property="star"></result>
+        <result column="M" property="m"></result>
+        <result column="Aar" property="aar"></result>
+        <result column="VarMin" property="varmin"></result>
+        <result column="VarMax" property="varmax"></result>
+        
+        <result column="Mad" property="mad"></result>
+        <result column="StAd" property="stad"></result>
+        <result column="VadMin" property="vadmin"></result>
+        <result column="VadMax" property="vadmax"></result>
+        <result column="HighestCalorificValue" property="highestcalorificvalue"></result>
+        
+        <result column="Std" property="std"></result>
+        <result column="DryAshFreeVolatilesMin" property="dryashfreevolatilesmin"></result>
+        <result column="DryAshFreeVolatilesMax" property="dryashfreevolatilesmax"></result>
+        <result column="mm" property="mm"></result>
+        <result column="ST" property="st"></result>
+        
+        <result column="HGI" property="hgi"></result>
+        <result column="Reamrks" property="remarks"></result>
+        <result column="State" property="state"></result>
+        
+    </resultMap>
+    
+	<sql id="Base_Column_List">
+		PurchasingDemandId,
+		Deadline,
+		ApplicationUnit,
+		DocumentNumber,
+		Applicant,
+		
+		Issuer,
+		ApplicationDate,
+		DeliveryTime1,
+		DeliveryTime2,
+		VarietyOfCoal1,
+		
+		VarietyOfCoal2,
+		PurchaseQuantity,
+		TypeOfShipping,
+		PlaceOfDelivery,
+		SettlementMethod,
+		
+		AcceptanceMethod,
+		PriceCeiling,
+		FloorPrice,
+		LimitPrice,
+		SettlementPaymentMethod,
+		
+		IfPriceMarginPayment,
+		PriceMarginPayment,
+		IfPerformanceBondPayment,
+		PerformanceBondPayment,
+		ReceivedLowBaseHeat,
+		
+		StAr,
+		M,
+		Aar,
+		VarMin,
+		VarMax,
+		
+		Mad,
+		StAd,
+		VadMin,
+		VadMax,
+		HighestCalorificValue,
+		
+		Std,
+		DryAshFreeVolatilesMin,
+		DryAshFreeVolatilesMax,
+		mm,
+		ST,
+		
+		HGI,
+		Remarks,
+		State
+		
+	</sql>
+	
+	<insert id="insertPurchasingDemand" parameterType="PurchasingDemandEntity">
+		insert into purchasingdemand
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="purchasingdemandid != null">
+				PurchasingDemandId,
+			</if>
+			<if test="deadline != null">
+				Deadline,
+			</if>
+				<if test="applicationunit != null">
+				ApplicationUnit,
+			</if>
+			<if test="documentnumber != null">
+				DocumentNumber,
+			</if>
+			<if test="applicant != null">
+				Applicant,
+			</if>
+			<if test="issuer != null">
+				Issuer,
+			</if>
+			<if test="applicationdate != null">
+				ApplicationDate,
+			</if>
+			<if test="deliverytime1 != null">
+	           DeliveryTime1,
+			</if>
+			<if test="deliverytime2 != null">
+				DeliveryTime2,
+			</if>
+			<if test="varietyofcoal1 != null">
+				VarietyOfCoal1,
+			</if>
+			<if test="varietyofcoal2 != null">
+				VarietyOfCoal2,
+			</if>
+			<if test="purchasequantity != null">
+				PurchaseQuantity,
+			</if>
+			
+			<if test="typeofshipping != null">
+				TypeOfShipping,
+			</if>
+			
+			<if test="placeofdelivery != null">
+				PlaceOfDelivery,
+			</if>
+			<if test="settlementmethod != null">
+				SettlementMethod,
+			</if>
+			
+			<if test="acceptancemethod != null">
+				AcceptanceMethod,
+			</if>
+			
+			<if test="priceceiling != null">
+				PriceCeiling,
+			</if>
+			
+			<if test="floorprice != null">
+				FloorPrice,
+			</if>
+			<if test="limitprice!= null">
+				LimitPrice,
+			</if>
+			
+			<if test="settlementpaymentmethod != null">
+				SettlementPaymentMethod,
+			</if>
+			
+			<if test="ifpricemarginpayment != null">
+				IfPriceMarginPayment,
+			</if>
+			
+			<if test="pricemarginpayment != null">
+				PriceMarginPayment,
+			</if>
+			
+			<if test="ifperformancebondpayment != null">
+				IfPerformanceBondPayment,
+			</if>
+		
+			<if test="performancebondpayment != null">
+				PerformanceBondPayment,
+			</if>
+			
+		
+			
+			<if test="receivedlowbaseheat != null">
+				ReceivedLowBaseHeat,
+			</if>
+				<if test="star != null">
+				StAr,
+			</if>
+			<if test="m != null">
+				M,
+			</if>
+			<if test="aar != null">
+				Aar,
+			</if>
+			<if test="varmin != null">
+				VarMin,
+			</if>
+			<if test="varmax != null">
+				VarMax,
+			</if>
+			<if test="mad != null">
+	          Mad,
+			</if>
+			<if test="stad != null">
+				StAd,
+			</if>
+			<if test="vadmin != null">
+				VadMin,
+			</if>
+			<if test="vadmax != null">
+				VadMax,
+			</if>
+			<if test="highestcalorificvalue != null">
+				HighestCalorificValue,
+			</if>
+			
+			<if test="std!= null">
+				Std,
+			</if>
+			
+			<if test="dryashfreevolatilesmin != null">
+				DryAshFreeVolatilesMin,
+			</if>
+			
+			<if test="dryashfreevolatilesmax != null">
+				DryAshFreeVolatilesMax,
+			</if>
+			
+			<if test="mm != null">
+				mm,
+			</if>
+			
+			<if test="st != null">
+				ST,
+			</if>
+			
+			<if test="hgi != null">
+				HGI,
+			</if>
+			
+			<if test="remarks != null">
+				Remarks,
+		
+			</if>
+		<if test="state != null">
+				State,
+		
+			</if>
+		
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+		
+		<if test="purchasingdemandid != null">
+				#{purchasingdemandid,jdbcType=VARCHAR},
+			</if>
+			<if test="deadline != null">
+				#{deadline, jdbcType=TIMESTAMP},
+			</if>
+			<if test="applicationunit != null">
+				#{applicationunit, jdbcType=VARCHAR},
+			</if>
+			<if test="documentnumber != null">
+				#{documentnumber, jdbcType=VARCHAR},
+			</if>
+			<if test="applicant != null">
+				#{applicant, jdbcType=VARCHAR},
+			</if>
+			<if test="issuer != null">
+				#{issuer, jdbcType=VARCHAR},
+			</if>
+			<if test="applicationdate != null">
+				#{applicationdate, jdbcType=TIMESTAMP},
+			</if>
+			<if test="deliverytime1 != null">
+				#{deliverytime1, jdbcType=TIMESTAMP},
+			</if>
+			<if test="deliverytime2 != null">
+				#{deliverytime2, jdbcType=TIMESTAMP},
+			</if>
+			<if test="varietyofcoal1 != null">
+				#{varietyofcoal1, jdbcType=VARCHAR},
+			</if>
+			<if test="varietyofcoal2 != null">
+				#{varietyofcoal2, jdbcType=VARCHAR},
+			</if>
+			<if test="purchasequantity != null">
+				#{purchasequantity, jdbcType=VARCHAR},
+			</if>
+			<if test="typeofshipping != null">
+				#{typeofshipping, jdbcType=VARCHAR},
+			</if>
+			<if test="placeofdelivery != null">
+				#{placeofdelivery, jdbcType=VARCHAR},
+			</if>
+			<if test="settlementmethod != null">
+				#{settlementmethod, jdbcType=VARCHAR},
+			</if>
+			<if test="acceptancemethod != null">
+				#{acceptancemethod, jdbcType=VARCHAR},
+			</if>
+			<if test="priceceiling != null">
+				#{priceceiling, jdbcType=VARCHAR},
+			</if>
+			<if test="floorprice != null">
+				#{floorprice, jdbcType=VARCHAR},
+			</if>
+			<if test="limitprice != null">
+				#{limitprice, jdbcType=VARCHAR},
+			</if>
+			<if test="settlementpaymentmethod != null">
+				#{settlementpaymentmethod, jdbcType=VARCHAR},
+			</if>
+			<if test="ifpricemarginpayment != null">
+				#{ifpricemarginpayment, jdbcType=VARCHAR},
+			</if>
+			<if test="pricemarginpayment != null">
+				#{pricemarginpayment, jdbcType=VARCHAR},
+			</if>
+			<if test="ifperformancebondpayment != null">
+				#{ifperformancebondpayment, jdbcType=VARCHAR},
+			</if>
+			<if test="performancebondpayment != null">
+				#{performancebondpayment, jdbcType=VARCHAR},
+			</if>
+			
+			
+			<if test="receivedlowbaseheat != null">
+				#{receivedlowbaseheat, jdbcType=VARCHAR},
+			</if>
+			<if test="star != null">
+				#{star, jdbcType=VARCHAR},
+			</if>
+			<if test="m != null">
+				#{m, jdbcType=VARCHAR},
+			</if>
+			<if test="aar != null">
+				#{aar, jdbcType=VARCHAR},
+			</if>
+			<if test="varmin != null">
+				#{varmin, jdbcType=VARCHAR},
+			</if>
+			<if test="varmax != null">
+				#{varmax, jdbcType=VARCHAR},
+			</if>
+			<if test="mad != null">
+				#{mad, jdbcType=VARCHAR},
+			</if>
+			<if test="stad != null">
+				#{stad, jdbcType=VARCHAR},
+			</if>
+			<if test="vadmin != null">
+				#{vadmin, jdbcType=VARCHAR},
+			</if>
+			<if test="vadmax != null">
+				#{vadmax, jdbcType=VARCHAR},
+			</if>
+			<if test="highestcalorificvalue != null">
+				#{highestcalorificvalue, jdbcType=VARCHAR},
+			</if>
+			<if test="std != null">
+				#{std, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="dryashfreevolatilesmin != null">
+				#{dryashfreevolatilesmin, jdbcType=VARCHAR},
+			</if>
+			<if test="dryashfreevolatilesmax != null">
+				#{dryashfreevolatilesmax, jdbcType=VARCHAR},
+			</if>
+			<if test="mm != null">
+				#{mm, jdbcType=VARCHAR},
+			</if>
+			<if test="st != null">
+				#{st, jdbcType=VARCHAR},
+			</if>
+			<if test="hgi != null">
+				#{hgi, jdbcType=VARCHAR},
+			</if>
+			<if test="remarks != null">
+				#{remarks, jdbcType=VARCHAR},
+			</if>
+	        <if test="state != null">
+				#{state, jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+    <!--查询所有用户数据 -->
+    <select id="getPDsList"  parameterType="com.dxm.edu.entity.Page" resultMap="pd">
+     select * from purchasingdemand 
+      where State not in ('待审批')
+       limit #{startRow},#{pageSize}
+      
+    </select>
+      <select id="getPDsList2"  parameterType="com.dxm.edu.entity.Page" resultMap="pd">
+     select * from purchasingdemand 
+      where State = ('待审批')   	
+      limit #{startRow},#{pageSize}
+      
+    </select>
+    
+    <select id="getPDTotalCount" parameterType="com.dxm.edu.entity.Page"
+        resultType="java.lang.Integer">
+        select count(purchasingdemandid) from purchasingdemand
+          
+      <where>
+               State not in ('待审批')
+            <if test="queryCondition!=null">
+               and  State like CONCAT('%',#{queryCondition},'%')
+            </if>
+            
+             <if test="applicationunitQueryCondition!=null">
+             and    ApplicationUnit like CONCAT('%',#{applicationunitQueryCondition},'%')   
+            </if>
+            
+            <if test="documentnumberQueryCondition!=null">
+               and  DocumentNumber like CONCAT('%',#{documentnumberQueryCondition},'%') 
+            </if>
+            
+        </where> 
+    </select>
+     <select id="getPDTotalCount2" parameterType="com.dxm.edu.entity.Page"
+        resultType="java.lang.Integer">
+        select count(purchasingdemandid) from purchasingdemand
+        
+        
+      <where>
+            
+              
+            <if test="queryCondition!=null">
+               and  State like CONCAT('%',#{queryCondition},'%')
+            </if>
+            
+             <if test="applicationunitQueryCondition!=null">
+             and    ApplicationUnit like CONCAT('%',#{applicationunitQueryCondition},'%')   
+            </if>
+            
+            <if test="documentnumberQueryCondition!=null">
+               and  DocumentNumber like CONCAT('%',#{documentnumberQueryCondition},'%') 
+            </if>
+            
+        </where> 
+    </select>
+    
+
+    <select id="getPDsBycondtion" parameterType="com.dxm.edu.entity.Page" resultMap="pd">
+    
+        select * from purchasingdemand
+         <where>
+         State not in ('待审批')
+           <if test="queryCondition!=null">
+               and  State like CONCAT('%',#{queryCondition},'%')
+            </if>
+            
+             <if test="applicationunitQueryCondition!=null">
+             and    ApplicationUnit like CONCAT('%',#{applicationunitQueryCondition},'%')   
+            </if>
+            
+            <if test="documentnumberQueryCondition!=null">
+               and  DocumentNumber like CONCAT('%',#{documentnumberQueryCondition},'%') 
+            </if>
+        </where>
+        limit #{startRow},#{pageSize}
+      </select>
+      
+    <select id="getPDsBycondtion2" parameterType="com.dxm.edu.entity.Page" resultMap="pd">
+    
+        select * from purchasingdemand 
+         <where>
+            <if test="queryCondition!=null">
+               and  State like CONCAT('%',#{queryCondition},'%')
+            </if>
+            
+             <if test="applicationunitQueryCondition!=null">
+             and    ApplicationUnit like CONCAT('%',#{applicationunitQueryCondition},'%')   
+            </if>
+            
+            <if test="documentnumberQueryCondition!=null">
+               and  DocumentNumber like CONCAT('%',#{documentnumberQueryCondition},'%') 
+            </if>
+        </where>
+        limit #{startRow},#{pageSize}
+      </select> 
+      <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="PurchasingDemandEntity" resultMap="pd">
+		select
+		*
+		from purchasingdemand
+		where purchasingdemandid=#{purchasingdemandid,jdbcType=VARCHAR }
+	</select>
+      
+  <select id="getDocumentnumber" parameterType="java.lang.String"  resultMap="pd">
+    
+        select *
+        from purchasingdemand 
+         where DocumentNumber=#{documentnumber}
+           
+      </select> 
+	<update id="updateState" parameterType="java.lang.String" >
+		update purchasingdemand 
+		<set>
+			<if test="state != null">
+				State=#{state, jdbcType=VARCHAR},
+			</if>
+		</set>
+		where  PurchasingDemandId = #{purchasingdemandid,jdbcType=VARCHAR}
+	</update>
+	
+		<update id="updatePurchasingDemand" parameterType="PurchasingDemandEntity">
+		update purchasingdemand 
+		<set>
+			<if test="deadline != null">
+				Deadline=#{deadline, jdbcType=TIMESTAMP},
+			</if>
+			<if test="applicationunit != null">
+				ApplicationUnit=#{applicationunit, jdbcType=VARCHAR},
+			</if>
+			<if test="documentnumber != null">
+				DocumentNumber=#{documentnumber, jdbcType=VARCHAR},
+			</if>
+			<if test="applicant != null">
+			Applicant=	#{applicant, jdbcType=VARCHAR},
+			</if>
+			<if test="issuer != null">
+				Issuer=#{issuer, jdbcType=VARCHAR},
+			</if>
+			<if test="applicationdate != null">
+			ApplicationDate=	#{applicationdate, jdbcType=TIMESTAMP},
+			</if>
+			<if test="deliverytime1 != null">
+				DeliveryTime1=#{deliverytime1, jdbcType=TIMESTAMP},
+			</if>
+			<if test="deliverytime2 != null">
+				DeliveryTime2=#{deliverytime2, jdbcType=TIMESTAMP},
+			</if>
+			<if test="varietyofcoal1 != null">
+				VarietyOfCoal1=#{varietyofcoal1, jdbcType=VARCHAR},
+			</if>
+			<if test="varietyofcoal2 != null">
+				VarietyOfCoal2=#{varietyofcoal2, jdbcType=VARCHAR},
+			</if>
+			<if test="purchasequantity != null">
+				PurchaseQuantity=#{purchasequantity, jdbcType=VARCHAR},
+			</if>
+			<if test="typeofshipping != null">
+				TypeOfShipping=#{typeofshipping, jdbcType=VARCHAR},
+			</if>
+			<if test="placeofdelivery != null">
+				PlaceOfDelivery=#{placeofdelivery, jdbcType=VARCHAR},
+			</if>
+			<if test="settlementmethod != null">
+				SettlementMethod=#{settlementmethod, jdbcType=VARCHAR},
+			</if>
+			<if test="acceptancemethod != null">
+				AcceptanceMethod=#{acceptancemethod, jdbcType=VARCHAR},
+			</if>
+			<if test="priceceiling != null">
+				PriceCeiling=#{priceceiling, jdbcType=VARCHAR},
+			</if>
+			<if test="floorprice != null">
+				FloorPrice=#{floorprice, jdbcType=VARCHAR},
+			</if>
+			<if test="limitprice != null">
+				LimitPrice=#{limitprice, jdbcType=VARCHAR},
+			</if>
+			<if test="settlementpaymentmethod != null">
+				SettlementPaymentMethod=#{settlementpaymentmethod, jdbcType=VARCHAR},
+			</if>
+			<if test="ifpricemarginpayment != null">
+				IfPriceMarginPayment=#{ifpricemarginpayment, jdbcType=VARCHAR},
+			</if>
+			<if test="pricemarginpayment != null">
+				PriceMarginPayment=#{pricemarginpayment, jdbcType=VARCHAR},
+			</if>
+			<if test="ifperformancebondpayment != null">
+				IfPerformanceBondPayment=#{ifperformancebondpayment, jdbcType=VARCHAR},
+			</if>
+			<if test="performancebondpayment != null">
+				PerformanceBondPayment=#{performancebondpayment, jdbcType=VARCHAR},
+			</if>
+			
+			
+			<if test="receivedlowbaseheat != null">
+				ReceivedLowBaseHeat=#{receivedlowbaseheat, jdbcType=VARCHAR},
+			</if>
+			<if test="star != null">
+				StAr=#{star, jdbcType=VARCHAR},
+			</if>
+			<if test="m != null">
+				M=#{m, jdbcType=VARCHAR},
+			</if>
+			<if test="aar != null">
+				Aar=#{aar, jdbcType=VARCHAR},
+			</if>
+			<if test="varmin != null">
+				VarMin=#{varmin, jdbcType=VARCHAR},
+			</if>
+			<if test="varmax != null">
+				VarMax=#{varmax, jdbcType=VARCHAR},
+			</if>
+			<if test="mad != null">
+				Mad=#{mad, jdbcType=VARCHAR},
+			</if>
+			<if test="stad != null">
+				StAd=#{stad, jdbcType=VARCHAR},
+			</if>
+			<if test="vadmin != null">
+				VadMin=#{vadmin, jdbcType=VARCHAR},
+			</if>
+			<if test="vadmax != null">
+				VadMax=#{vadmax, jdbcType=VARCHAR},
+			</if>
+			<if test="highestcalorificvalue != null">
+				HighestCalorificValue=#{highestcalorificvalue, jdbcType=VARCHAR},
+			</if>
+			<if test="std != null">
+				Std=#{std, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="dryashfreevolatilesmin != null">
+				DryAshFreeVolatilesMin=#{dryashfreevolatilesmin, jdbcType=VARCHAR},
+			</if>
+			<if test="dryashfreevolatilesmax != null">
+				DryAshFreeVolatilesMax=#{dryashfreevolatilesmax, jdbcType=VARCHAR},
+			</if>
+			<if test="mm != null">
+				mm=#{mm, jdbcType=VARCHAR},
+			</if>
+			<if test="st != null">
+				ST=#{st, jdbcType=VARCHAR},
+			</if>
+			<if test="hgi != null">
+				HGI=#{hgi, jdbcType=VARCHAR},
+			</if>
+			<if test="remarks != null">
+				Remarks=#{remarks, jdbcType=VARCHAR},
+			</if>
+	        <if test="state != null">
+				State=#{state, jdbcType=VARCHAR},
+			</if>
+		</set>
+		where  PurchasingDemandId = #{purchasingdemandid,jdbcType=VARCHAR}
+	</update>
+   <delete id="deletedemandbyID" parameterType="java.lang.String" >
+        delete from purchasingdemand
+       	where  PurchasingDemandId = #{purchasingdemandid,jdbcType=VARCHAR}
+    </delete> 
+ 
+	
+</mapper>

@@ -1,0 +1,23 @@
+
+h2 {
+	font-family: "新宋体";
+	font-weight: bold;
+	color: #0000FF;
+	background-color: #00FF00;
+	border: 10px groove #00FFFF;
+	padding: 50px;
+}
+
+.abcd {
+	font-family: "新宋体";
+	font-weight: bold;
+	color: #0000FF;
+	background-color: #00FF00;
+	border: 10px groove #00FFFF;
+	padding: 50px;
+}
+
+#mydiv1{ width:300px; height:200px; background-color:#33FF33;
+margin-left:100px; margin-top:150px;
+	
+}

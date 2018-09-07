@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+<mapper namespace="com.dxm.edu.mapper.UserInfoMapper">
+
+	
+	注意sql语句没有分号结尾 
+
+	<insert id="addnewUserInfo" parameterType="com.dxm.edu.entity.UserInfoEntity">
+
+		insert into dc_userinfo(id,name,password) values(#{id},#{name},#{password})
+
+	</insert>
+
+	注意这里的参数类型是parameterType而不是parameterMap，因为返回的是单个类型 
+
+	
+   
+	
+
+</mapper> -->
+
+<mapper namespace="com.dxm.edu.mapper.UserInfoMapper">
+
+	<sql id="Base_Column_List">
+		 UserId, 
+		 RealName,
+		UserName,
+		Password,
+		Department,
+		Role,
+		Email,
+		Tel,
+		imageUrl,
+		AffiliatedCompany,
+		CompanyProfile,
+		CompanyWebsite,
+		BranchOffice,
+		CompanyLeader,
+		CompanyEmail,
+		CompanyTel,
+		companyAdress,
+		State
+		
+		
+		<!-- ,dcuserinfo_EnterpriseInfo_ID -->
+		
+		
+	</sql>
+	<select id="getUserInfos" parameterType="com.dxm.edu.entity.UserInfoEntity"
+		resultType="UserInfoEntity">
+		select
+		*
+		from dc_userinfo
+	
+	</select>
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="UserInfoEntity">
+		select
+		<include refid="Base_Column_List" />
+		from dc_userinfo
+		where UserId= #{id,jdbcType=VARCHAR }
+	</select>
+
+	<insert id="insertSelective" parameterType="UserInfoEntity">
+		insert into dc_userinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				UserId,
+			</if>
+			<if test="realname != null">
+				RealName,
+			</if>
+			<if test="username != null">
+				UserName,
+			</if>
+				<if test="password != null">
+				Password,
+			</if>
+			
+			<if test="department != null">
+				Department,
+			</if>
+			<if test="role != null">
+				Role,
+			</if>
+			<if test="email != null">
+				Email,
+			</if>
+			<if test="tel != null">
+				Tel,
+			</if>
+				<if test="imageurl != null">
+				imageUrl,
+			</if>
+			<if test="affiliatedcompany != null">
+				AffiliatedCompany,
+			</if>
+			<if test="companyprofile != null">
+	           CompanyProfile,
+			</if>
+			<if test="companywebsite != null">
+				CompanyWebsite,
+			</if>
+			<if test="branchoffice != null">
+				BranchOffice,
+			</if>
+			<if test="companyleader != null">
+				CompanyLeader,
+			</if>
+			<if test="companyemail != null">
+				CompanyEmail,
+			</if>
+			<if test="companytel != null">
+				CompanyTel,
+			</if>
+			<if test="companyadress != null">
+				CompanyAdress,
+			</if>
+			<if test="state != null">
+				State,
+			</if>
+		
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userid != null">
+				#{userid,jdbcType=VARCHAR},
+			</if>
+			<if test="realname != null">
+				#{realname, jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				#{username, jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="department != null">
+				#{department, jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				#{role, jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email, jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				#{tel, jdbcType=VARCHAR},
+			</if>
+			<if test="imageurl != null">
+				#{imageurl, jdbcType=VARCHAR},
+			</if>
+		
+			<if test="affiliatedcompany != null">
+				#{affiliatedcompany, jdbcType=VARCHAR},
+			</if>
+				<if test="companyprofile != null">
+				#{companyprofile, jdbcType=VARCHAR},
+			</if>
+			<if test="companywebsite != null">
+				#{companywebsite, jdbcType=VARCHAR},
+			</if>
+			<if test="branchoffice != null">
+				#{branchoffice, jdbcType=VARCHAR},
+			</if>
+			<if test="companyleader != null">
+				#{companyleader, jdbcType=VARCHAR},
+			</if>
+			<if test="companyemail != null">
+				#{companyemail, jdbcType=VARCHAR},
+			</if>
+			<if test="companytel != null">
+				#{companytel, jdbcType=VARCHAR},
+			</if>
+			<if test="companyadress != null">
+				#{companyadress, jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				#{state, jdbcType=VARCHAR},
+			</if>
+			
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.dxm.edu.entity.UserInfoEntity">
+		update dc_userinfo
+		<set>
+			<if test="realname != null">
+				realname = #{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				UserName = #{username,jdbcType=VARCHAR},
+			</if>
+			
+			<if test="password != null">
+				Password = #{password,jdbcType=VARCHAR},
+			</if>
+			
+			<if test="department != null">
+				department = #{department,jdbcType=VARCHAR},
+			</if>
+			<if test="role != null">
+				Role = #{role,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				Tel = #{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				Email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="affiliatedcompany != null">
+				AffiliatedCompany = #{affiliatedcompany,jdbcType=VARCHAR},
+			</if>
+				<if test="companyprofile != null">
+				CompanyProfile = #{companyprofile,jdbcType=VARCHAR},
+			</if>
+			
+			<if test="companywebsite != null">
+				CompanyWebsite = #{companywebsite,jdbcType=VARCHAR},
+			</if>
+			
+		
+		</set>
+		where UserId = #{userid,jdbcType=VARCHAR}
+	</update>
+	     <!-- 上传头像 -->
+	<update id="updateByPrimaryKeySelective2" parameterType="com.dxm.edu.entity.UserInfoEntity">
+		update dc_userinfo
+		<set>
+			<if test="imageurl != null">
+				imageUrl=#{imageurl, jdbcType=VARCHAR},
+			</if>
+		</set>
+		where UserId = #{userid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKeySelective3" parameterType="com.dxm.edu.entity.UserInfoEntity">
+		update dc_userinfo
+		<set>
+			<if test="password != null">
+				Password=#{password, jdbcType=VARCHAR},
+			</if>
+		</set>
+		where UserId = #{userid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKeySelective4" parameterType="com.dxm.edu.entity.UserInfoEntity">
+		update dc_userinfo
+		<set>
+			<if test="state != null">
+				State=#{state, jdbcType=VARCHAR},
+			</if>
+		</set>
+		where UserId = #{userid,jdbcType=VARCHAR}
+	</update>
+
+    <select id="getWithLoginAndPassword"  resultType="com.dxm.edu.entity.UserInfoEntity">
+
+	select * from dc_userinfo where UserName=#{username} and Password=#{password}
+	
+	</select> 
+	 <select id="getWithLoginAndPassword1"  resultType="com.dxm.edu.entity.UserInfoEntity">
+
+	select * from dc_userinfo where UserName=#{username} and Password=#{password}
+	
+	</select> 
+    <select id="getuserinfobyid"  resultType="com.dxm.edu.entity.UserInfoEntity">
+
+	select * from dc_userinfo where UserId=#{userid}
+	
+	</select> 
+	 <delete id="deleteUser" parameterType="java.lang.String" >
+        delete from dc_userinfo
+        where
+        UserId=#{userid}
+    </delete>
+    
+</mapper>

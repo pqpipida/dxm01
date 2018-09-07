@@ -1,0 +1,81 @@
+#container { margin:0px auto;
+
+	background-color: #4E4833;
+	height: 600px;
+	width: 1200px;
+}
+#container #top {
+	background-color:#4E4833;
+	height: 120px;
+	width: 1200px;
+	background-image: url(../img/top.png);
+	background-repeat: repeat-x;
+}
+#container #main {
+	background-color:#4E4833;
+	height: 380px;
+	width: 1200px;
+}
+#container #footer {
+	background-color: #4E4833;
+	height: 150px;
+	width: 1200px;
+}
+
+#container #top #title {
+	
+	height: 60px;
+	width: 550px;
+	float: left;
+	margin-top: 25px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 150px;
+}
+#container #top #rinfo1 {
+	background-color:#EFEDE6;
+	height: 25px;
+	width: 50px;
+	float: right;
+	margin-top: 50px;
+	margin-right: 40px;
+}
+#container #top #rinfo2 {
+	background-color: #EFEDE6;
+	width: 50px;
+	height: 25px;
+	float: right;
+	margin-top: 50px;
+	margin-right: 40px;
+}
+#container #main #leftmenu {
+	background-color: #E9E4E4;
+	height: 370px;
+	width: 200px;
+	float: left;
+}
+#container #main #maininfo {
+	background-color:#E3F3F4;
+	float: left;
+	height: 350px;
+	width: 900px;
+	padding-top: 20px;
+	padding-left: 30px;
+}
+.footer {
+    height: 170px;
+    width: 100%;
+    background-color: #4E4833;
+}
+
+.footer div p {
+    color: #ffffff;
+    line-height: 24px;
+}
+.footer div {
+    width: 1002px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+}
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dxm.edu.mapper.RecordofApprovalMapper">
+
+ <!--注意： nameSpace要和接口的名字和路径对应 -->
+
+    <resultMap id="records" type="com.dxm.edu.entity.RecordofApprovalEntity">
+    
+        <id column="RecordofApprovalID" property="id"></id>
+        <result column="Operator" property="operator"></result>
+        <result column="Company" property="company"></result>
+        <result column="Operation" property="operation"></result>
+        <result column="ExaminationAndApprovalOpinion" property="opinion"></result>
+        <result column="OperationTime" property="time"></result>
+        <result column="DocumentNumber" property="num"></result>
+     
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+		RecordofApprovalID,Operator,Company,
+		 Operation, ExaminationAndApprovalOpinion,
+		  OperationTime, DocumentNumber
+	</sql>
+	<insert id="insertRecordofApproval" parameterType="RecordofApprovalEntity">
+		insert into RecordofApproval
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				RecordofApprovalID,
+			</if>
+			<if test="operator != null">
+				Operator,
+			</if>
+			<if test="company != null">
+				Company,
+			</if>
+				<if test="operation != null">
+				Operation,
+			</if>
+			
+			<if test="opinion != null">
+				ExaminationAndApprovalOpinion,
+			</if>
+			<if test="time != null">
+				OperationTime,
+			</if>
+			<if test=" num != null">
+				 DocumentNumber,
+			</if>
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="operator != null">
+				#{operator, jdbcType=VARCHAR},
+			</if>
+			<if test="company != null">
+				#{company, jdbcType=VARCHAR},
+			</if>
+			<if test="operation != null">
+				#{operation, jdbcType=VARCHAR},
+			</if>
+			
+			<if test="opinion != null">
+				#{opinion, jdbcType=VARCHAR},
+			</if>
+			<if test="time != null">
+				#{time, jdbcType=TIMESTAMP},
+			</if>
+			<if test="num != null">
+				#{num, jdbcType=VARCHAR},
+			</if>
+			
+		</trim>
+	</insert>
+	  <select id="getbyDocumentnumber" parameterType="java.lang.String" resultMap="records">
+    
+        select *
+        from recordofapproval 
+         where DocumentNumber=#{documentnumber}
+           
+      </select> 
+ <select id="getRecordbydocumentnumber" parameterType="java.lang.String" resultMap="records">
+    
+        select *
+        from recordofapproval 
+         where DocumentNumber=#{documentnumber}
+           
+      </select> 
+
+</mapper>

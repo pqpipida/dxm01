@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dxm.edu.mapper.NoticeMapper">
+
+ <!--注意： nameSpace要和接口的名字和路径对应 -->
+
+    <resultMap id="notices" type="com.dxm.edu.entity.NoticeEntity">
+        <id column="PublicNoticeId" property="noticeid"></id>
+        <result column="Title" property="title"></result>
+        <result column="Time" property="time"></result>
+        <result column="Content" property="content"></result>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+		PublicNoticeId,Title,Time ,Content
+	</sql>
+
+   
+
+    <!--查询所有用户数据 -->
+    <select id="getNoticesList"  parameterType="com.dxm.edu.entity.Page2" resultMap="notices">
+      select * from dc_publicnotice limit #{startRow2},#{pageSize2}
+    </select>
+
+    <select id="getTotalCount" parameterType="com.dxm.edu.entity.Page2"
+        resultType="java.lang.Integer">
+        select count(PublicNoticeId) from dc_publicnotice 
+         <where>
+            <if test="titleCondition2!=null">
+                 Title like CONCAT('%',#{titleCondition2},'%')
+            </if>
+        </where> 
+    </select>
+
+
+    <select id="getNoticesBycondtion" parameterType="com.dxm.edu.entity.Page2" resultMap="notices">
+    
+         select * from dc_publicnotice 
+         <where>
+            <if test="titleCondition2!=null">
+                 Title like  CONCAT('%',#{titleCondition2},'%')
+            </if>
+        </where>
+        limit #{startRow2},#{pageSize2}
+      </select>
+
+    <delete id="deleteNotice" parameterType="java.lang.Integer">
+        delete from dc_publicnotice 
+        where
+        PublicNoticeId=#{noticeid}
+    </delete>
+ 	<select id="getNotice" parameterType="java.lang.Integer" resultMap="notices">
+       select*from dc_publicnotice 
+        where
+        PublicNoticeId=#{noticeid}
+    </select>
+  
+
+</mapper>

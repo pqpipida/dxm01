@@ -1,0 +1,126 @@
+a{
+    color: #333333;
+}
+/*table{
+    display: inline-block;
+}
+table tr{
+    display: inline-block;
+}
+table tr td{
+    display: inline-block;
+}*/
+.main_center .m_c_right a{
+    color: #333333;
+}
+.main_center .m_c_right a:hover{
+    color: #ff7a41 !important;
+}
+/*.main_center .m_c_right a span:hover{
+    color: #ff7a41 !important;
+}*/
+.mian_top .main_box table tr{
+    cursor: pointer;
+}
+.tron{
+    background-color: #e9f6ec;
+}
+/*.mian_top .main_box table tr td{
+    display: inline-block;
+}*/
+/*.mian_top .main_box table tr:hover{
+    background-color: #f6fbff;
+}*/
+
+/*.mian_top .main_box table tr td:hover{
+    +background-color: #f6fbff;
+    +padding:0;
+    +text-align: center;
+}*/
+.chart1{
+    margin-left: 25px;
+    line-height: 26px;
+    border: 1px solid #cccccc;
+    width: 456px;
+    margin-top: 3px;
+    position: relative;
+    /*z-index: 1;*/
+}
+.chart1 ul li{
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+    z-index: 1;
+}
+.chart_li a{
+    color: #4290be!important;
+}
+
+.chart_div1 a{
+    display: inline-block;
+    width: 86px;
+    border-right: 1px solid #cccccc;
+    text-align: center;
+    color: #888888;
+}
+
+.bussDetail{
+    width: 135%;
+    position: absolute;
+    z-index: 999;
+    top: 26px;
+    border: 2px solid #3287bd;
+    height: 26px;
+    line-height: 26px;
+    background-color: #f6f6f6;
+    /*margin-left: 26px;
+    margin-top: 26px;*/
+    display: none;
+}
+.bussDetail a{
+    color: #333333;
+    display: inline-block;
+    /*width: 70px;*/
+    padding: 0 15px;
+    text-align: center;
+    border-right: 1px solid #cccccc;
+}
+/*.bussDetail tr td{
+    padding: 0 30px !important;
+}*/
+.arrows{
+    position: absolute;
+    left: 25px;
+    top: -6px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+    border-bottom-color: #3287bd;
+}
+
+
+.quchu{
+  border: none !important;
+}
+.quchu_li{
+    border: none !important;
+}
+.news_c_box ul li:hover{
+    color: #fe9264;
+}
+.ne_c_box ul li:hover{
+    color: #fe9264;
+}
+/*.market table tr{
+
+    line-height: 43px;
+}*/
+.only{
+    line-height: 42px!important;
+}
+.market table tr:hover{
+    background-color: #f6fbff;
+}
+
